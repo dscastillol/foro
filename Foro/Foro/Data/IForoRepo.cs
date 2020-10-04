@@ -22,7 +22,7 @@ namespace Foro.Data
 
         //Comentarios
         IEnumerable<Comentario> GetAllComentarios();
-        Publicacion GetComentarioById(int id);
+        Comentario GetComentarioById(int id);
         void CreateComentario(Comentario comentario);
 
     }
