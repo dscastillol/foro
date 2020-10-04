@@ -48,7 +48,7 @@ namespace Foro.Data
 
         public IEnumerable<Comentario> GetAllComentarios()
         {
-            return _context.Comentarios.Include(x => x.Publicacion).ToList();
+            return _context.Comentarios.Include(x => x.Publicacion).Include(x => x.Publicacion.Grupo).ToList();
         }
 
         public IEnumerable<Grupo> GetAllGrupos()
@@ -63,7 +63,7 @@ namespace Foro.Data
 
         public Comentario GetComentarioById(int id)
         {
-            return _context.Comentarios.Include(x => x.Publicacion).FirstOrDefault(x => x.ComentarioID == id);
+            return _context.Comentarios.Include(x => x.Publicacion).Include(x => x.Publicacion.Grupo).FirstOrDefault(x => x.ComentarioID == id);
         }
 
         public Grupo GetGrupoById(int id)
