@@ -31,6 +31,8 @@ namespace Foro
             services.AddDbContext<ForoContext>(opt => opt.UseSqlServer
                 (Configuration.GetConnectionString("ForoConnection")));
 
+            services.AddSwaggerGen();
+
             services.AddControllers();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -48,6 +50,13 @@ namespace Foro
 
             if (!context.Database.EnsureCreated())
                 context.Database.Migrate();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.yaml", "My API V1");
+            });
 
             app.UseHttpsRedirection();
 
