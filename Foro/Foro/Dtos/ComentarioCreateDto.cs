@@ -14,7 +14,5 @@ namespace Foro.Dtos
         public int PublicacionID { get; set; }
         public int UserID { get; set; }
 
-        [ForeignKey("PublicacionID")]
-        public Publicacion Publicacion { get; set; }
     }
 }

@@ -14,8 +14,6 @@ namespace Foro.Dtos
         public string Contenido { get; set; }
         public int GrupoID { get; set; }
         public int UserID { get; set; }
-
-        [ForeignKey("GrupoID")]
-        public Grupo Grupo { get; set; }
+        
     }
 }
